@@ -1,0 +1,113 @@
+[debug] [2021-05-21T17:42:35.777Z] ----------------------------------------------------------------------
+[debug] [2021-05-21T17:42:35.779Z] Command:       /home/enzo/.nvm/versions/node/v12.20.2/bin/node /home/enzo/.nvm/versions/node/v12.20.2/bin/firebase functions:shell
+[debug] [2021-05-21T17:42:35.779Z] CLI Version:   9.10.2
+[debug] [2021-05-21T17:42:35.779Z] Platform:      linux
+[debug] [2021-05-21T17:42:35.779Z] Node Version:  v12.20.2
+[debug] [2021-05-21T17:42:35.779Z] Time:          Fri May 21 2021 13:42:35 GMT-0400 (GMT-04:00)
+[debug] [2021-05-21T17:42:35.780Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-05-21T17:42:35.784Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-05-21T17:42:35.784Z] > authorizing via signed-in user (entamburini@uc.cl)
+[debug] [2021-05-21T17:42:35.784Z] [iam] checking project js-pwa-70a4e for permissions ["firebase.projects.get"]
+[debug] [2021-05-21T17:42:35.786Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-05-21T17:42:35.786Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-21T17:42:36.022Z] <<< HTTP RESPONSE 200 {"date":"Fri, 21 May 2021 17:42:35 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-21T17:42:36.029Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/js-pwa-70a4e:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-05-21T17:42:37.124Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 21 May 2021 17:42:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=815","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-21T17:42:37.138Z] [functions] Using node@12 from host.
+[debug] [2021-05-21T17:42:37.139Z] defaultcredentials: writing to file /home/enzo/.config/firebase/entamburini_uc_cl_application_default_credentials.json
+[debug] [2021-05-21T17:42:37.140Z] DEBUG: Setting GAC to /home/enzo/.config/firebase/entamburini_uc_cl_application_default_credentials.json
+[debug] [2021-05-21T17:42:37.141Z] > refreshing access token with scopes: []
+[debug] [2021-05-21T17:42:37.141Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-05-21T17:42:37.300Z] <<< HTTP RESPONSE 200 {"date":"Fri, 21 May 2021 17:42:37 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-05-21T17:42:37.307Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/js-pwa-70a4e/adminSdkConfig [none]
+[debug] [2021-05-21T17:42:37.919Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/js-pwa-70a4e/adminSdkConfig 200
+[debug] [2021-05-21T17:42:37.919Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/js-pwa-70a4e/adminSdkConfig {"projectId":"js-pwa-70a4e","storageBucket":"js-pwa-70a4e.appspot.com","locationId":"southamerica-east1"}
+[debug] [2021-05-21T17:42:37.928Z] [functions] Watching "/home/enzo/uc/webavanzado/tarea-pwa/functions" for Cloud Functions...
+[debug] [2021-05-21T17:42:37.937Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2021-05-21T17:42:37.937Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2021-05-21T17:42:37.937Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2021-05-21T17:42:37.937Z] DEBUG: [worker-~diagnostic~-14d1718d-d83f-4bce-95c7-42de4ea7eb67]: Assigning socketPath: /tmp/fire_emu_77445.sock
+[debug] [2021-05-21T17:42:37.937Z] DEBUG: [worker-~diagnostic~-14d1718d-d83f-4bce-95c7-42de4ea7eb67]: BUSY
+[debug] [2021-05-21T17:42:38.052Z] DEBUG: [runtime-status] [77445] Functions runtime initialized. {"cwd":"/home/enzo/uc/webavanzado/tarea-pwa/functions","node_version":"12.20.2"}
+[debug] [2021-05-21T17:42:38.053Z] DEBUG: [runtime-status] [77445] Disabled runtime features: undefined
+[debug] [2021-05-21T17:42:38.055Z] DEBUG: [runtime-status] [77445] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.8.0","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-admin/lib/index.js"}
+[debug] [2021-05-21T17:42:38.056Z] DEBUG: [runtime-status] [77445] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:42:38.057Z] DEBUG: [runtime-status] [77445] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:42:38.059Z] DEBUG: [runtime-status] [77445] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2021-05-21T17:42:38.060Z] DEBUG: [runtime-status] [77445] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:42:38.087Z] DEBUG: [runtime-status] [77445] Checked functions.config() {"config":{}}
+[debug] [2021-05-21T17:42:38.087Z] DEBUG: [runtime-status] [77445] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}}
+[debug] [2021-05-21T17:42:38.088Z] DEBUG: [runtime-status] [77445] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:42:38.088Z] DEBUG: [runtime-status] [77445] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.8.0","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-admin/lib/index.js"}
+[debug] [2021-05-21T17:42:38.088Z] DEBUG: [runtime-status] [77445] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:42:38.089Z] DEBUG: [runtime-status] [77445] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.8.0","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-admin/lib/index.js"}}
+[debug] [2021-05-21T17:42:38.089Z] DEBUG: [runtime-status] [77445] initializeApp(DEFAULT) {"storageBucket":"js-pwa-70a4e.appspot.com","projectId":"js-pwa-70a4e"}
+[debug] [2021-05-21T17:42:38.091Z] [functions[postsFeed]] http function initialized (http://localhost:5001/js-pwa-70a4e/us-central1/postsFeed).
+[debug] [2021-05-21T17:42:38.091Z] [functions[addPost]] http function initialized (http://localhost:5001/js-pwa-70a4e/us-central1/addPost).
+[debug] [2021-05-21T17:42:38.091Z] [functions[getPosts]] http function initialized (http://localhost:5001/js-pwa-70a4e/us-central1/getPosts).
+[debug] [2021-05-21T17:42:38.091Z] [functions[sendLikeCloud]] http function initialized (http://localhost:5001/js-pwa-70a4e/us-central1/sendLikeCloud).
+[info] i  functions: Loaded functions: postsFeed, addPost, getPosts, sendLikeCloud 
+[warn] ⚠  functions: The following emulators are not running, calls to these services will affect production: firestore, database, pubsub, storage 
+[debug] [2021-05-21T17:42:38.099Z] DEBUG: [worker-~diagnostic~-14d1718d-d83f-4bce-95c7-42de4ea7eb67]: IDLE
+[debug] [2021-05-21T17:43:03.692Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-05-21T17:43:03.694Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-05-21T17:43:03.695Z] Accepted request GET /js-pwa-70a4e/us-central1/addPost --> addPost
+[debug] [2021-05-21T17:43:03.703Z] DEBUG: [worker-pool] addWorker(addPost)
+[debug] [2021-05-21T17:43:03.704Z] DEBUG: [worker-pool] Adding worker with key addPost, total=1
+[debug] [2021-05-21T17:43:03.704Z] DEBUG: [worker-pool] submitWork(triggerId=addPost)
+[debug] [2021-05-21T17:43:03.704Z] DEBUG: [worker-addPost-40de0523-9208-4147-b5ba-59f91d914f12]: Assigning socketPath: /tmp/fire_emu_77516.sock
+[debug] [2021-05-21T17:43:03.704Z] DEBUG: [worker-addPost-40de0523-9208-4147-b5ba-59f91d914f12]: BUSY
+[debug] [2021-05-21T17:43:03.807Z] DEBUG: [runtime-status] [77516] Functions runtime initialized. {"cwd":"/home/enzo/uc/webavanzado/tarea-pwa/functions","node_version":"12.20.2"}
+[debug] [2021-05-21T17:43:03.808Z] DEBUG: [runtime-status] [77516] Disabled runtime features: undefined
+[debug] [2021-05-21T17:43:03.810Z] DEBUG: [runtime-status] [77516] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.8.0","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-admin/lib/index.js"}
+[debug] [2021-05-21T17:43:03.811Z] DEBUG: [runtime-status] [77516] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:43:03.811Z] DEBUG: [runtime-status] [77516] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:43:03.812Z] DEBUG: [runtime-status] [77516] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2021-05-21T17:43:03.813Z] DEBUG: [runtime-status] [77516] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:43:03.837Z] DEBUG: [runtime-status] [77516] Checked functions.config() {"config":{}}
+[debug] [2021-05-21T17:43:03.837Z] DEBUG: [runtime-status] [77516] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}}
+[debug] [2021-05-21T17:43:03.837Z] DEBUG: [runtime-status] [77516] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:43:03.838Z] DEBUG: [runtime-status] [77516] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.8.0","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-admin/lib/index.js"}
+[debug] [2021-05-21T17:43:03.838Z] DEBUG: [runtime-status] [77516] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-functions/lib/index.js"}
+[debug] [2021-05-21T17:43:03.838Z] DEBUG: [runtime-status] [77516] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.8.0","resolution":"/home/enzo/uc/webavanzado/tarea-pwa/node_modules/firebase-admin/lib/index.js"}}
+[debug] [2021-05-21T17:43:03.839Z] DEBUG: [runtime-status] [77516] initializeApp(DEFAULT) {"storageBucket":"js-pwa-70a4e.appspot.com","projectId":"js-pwa-70a4e"}
+[debug] [2021-05-21T17:43:03.840Z] DEBUG: [runtime-status] [77516] Trigger "addPost" has been found, beginning invocation!
+[debug] [2021-05-21T17:43:03.840Z] [functions] Beginning execution of "addPost"
+[debug] [2021-05-21T17:43:03.841Z] DEBUG: [runtime-status] [77516] triggerDefinition {"httpsTrigger":{},"name":"addPost","entryPoint":"addPost"}
+[debug] [2021-05-21T17:43:03.841Z] DEBUG: [runtime-status] [77516] Running addPost in mode HTTPS
+[debug] [2021-05-21T17:43:03.843Z] DEBUG: [runtime-status] [77516] Attempting to listen to socketPath: /tmp/fire_emu_77516.sock
+[debug] [2021-05-21T17:43:03.847Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2021-05-21T17:43:03.848Z] DEBUG: [functions] Got req.url=/js-pwa-70a4e/us-central1/addPost, mapping to path=/
+[debug] [2021-05-21T17:43:03.856Z] DEBUG: [runtime-status] [77516] Ephemeral server handling GET request
+[info] >  {} {"user":{},"metadata":{"emulator":{"name":"functions"},"function":{"name":"addPost"},"message":"\u001b[90m> \u001b[39m {}"}}
+[warn] ⚠  functions: The Cloud Firestore emulator is not running, so calls to Firestore will affect production. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"addPost"},"message":"The Cloud Firestore emulator is not running, so calls to Firestore will affect production."}}
+[debug] [2021-05-21T17:43:04.100Z] DEBUG: [runtime-status] [77516] Ephemeral server survived.
+[debug] [2021-05-21T17:43:04.101Z] [functions] Finished "addPost" in ~1s
+[debug] [2021-05-21T17:43:04.101Z] DEBUG: [worker-addPost-40de0523-9208-4147-b5ba-59f91d914f12]: IDLE
+[debug] [2021-05-21T17:43:04.102Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[warn] ⚠  Google API requested!
+   - URL: "https://oauth2.googleapis.com/token"
+   - Be careful, this may be a production service. {"metadata":{"emulator":{"name":"functions"},"function":{"name":"addPost"},"message":"Google API requested!\n   - URL: \"https://oauth2.googleapis.com/token\"\n   - Be careful, this may be a production service."}}
+[debug] [2021-05-21T17:43:32.129Z] [work-queue] {"queueLength":1,"workRunningCount":0}
+[debug] [2021-05-21T17:43:32.129Z] [work-queue] {"queueLength":0,"workRunningCount":1}
+[debug] [2021-05-21T17:43:32.129Z] Accepted request GET /js-pwa-70a4e/us-central1/addPost --> addPost
+[debug] [2021-05-21T17:43:32.129Z] DEBUG: [worker-pool] submitWork(triggerId=addPost)
+[debug] [2021-05-21T17:43:32.129Z] DEBUG: [worker-addPost-40de0523-9208-4147-b5ba-59f91d914f12]: Assigning socketPath: /tmp/fire_emu_77516.sock
+[debug] [2021-05-21T17:43:32.130Z] DEBUG: [worker-addPost-40de0523-9208-4147-b5ba-59f91d914f12]: BUSY
+[debug] [2021-05-21T17:43:32.130Z] DEBUG: [runtime-status] [77516] Trigger "addPost" has been found, beginning invocation!
+[debug] [2021-05-21T17:43:32.130Z] [functions] Beginning execution of "addPost"
+[debug] [2021-05-21T17:43:32.131Z] DEBUG: [runtime-status] [77516] triggerDefinition {"httpsTrigger":{},"name":"addPost","entryPoint":"addPost"}
+[debug] [2021-05-21T17:43:32.131Z] DEBUG: [runtime-status] [77516] Running addPost in mode HTTPS
+[debug] [2021-05-21T17:43:32.131Z] DEBUG: [runtime-status] [77516] Attempting to listen to socketPath: /tmp/fire_emu_77516.sock
+[debug] [2021-05-21T17:43:32.132Z] DEBUG: [functions] Runtime ready! Sending request!
+[debug] [2021-05-21T17:43:32.132Z] DEBUG: [functions] Got req.url=/js-pwa-70a4e/us-central1/addPost, mapping to path=/
+[debug] [2021-05-21T17:43:32.135Z] DEBUG: [runtime-status] [77516] Ephemeral server handling GET request
+[info] >  {} {"user":{},"metadata":{"emulator":{"name":"functions"},"function":{"name":"addPost"},"message":"\u001b[90m> \u001b[39m {}"}}
+[debug] [2021-05-21T17:43:32.137Z] DEBUG: [runtime-status] [77516] Ephemeral server survived.
+[debug] [2021-05-21T17:43:32.137Z] [functions] Finished "addPost" in ~1s
+[debug] [2021-05-21T17:43:32.137Z] DEBUG: [worker-addPost-40de0523-9208-4147-b5ba-59f91d914f12]: IDLE
+[debug] [2021-05-21T17:43:32.138Z] [work-queue] {"queueLength":0,"workRunningCount":0}
