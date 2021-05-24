@@ -3,19 +3,19 @@
 const messaging=firebase.messaging();
 
 function IntitalizeFireBaseMessaging() {
-          messaging
-              .requestPermission()
-              .then(function () {
-                  console.log("Notification Permission");
-                  return messaging.getToken();
-              })
-              .then(function (token) {
-                  console.log(`Token : ${token}`);
-              })
-              .catch(function (reason) {
-                  console.log(reason);
-              });
-      }
+  messaging
+    .requestPermission()
+    .then(function () {
+      console.log("Notification Permission");
+      return messaging.getToken();
+    })
+    .then(function (token) {
+      console.log(`Token : ${token}`);
+    })
+    .catch(function (reason) {
+      console.log(reason);
+  });
+}
 
 messaging.onMessage(function (payload) {
   beautifulNotification(payload.notification)

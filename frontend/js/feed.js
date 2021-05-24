@@ -1,14 +1,9 @@
 window.onload = () => {
     "use strict";
-    console.log("Antes del sw")
     if ("serviceWorker" in navigator) {
-      console.log("Dentro del sw")
-
       navigator.serviceWorker.register("./sw.js");
-    }
-    firebase.messaging().getToken({vapidKey: 'BFT2TPFfJf2AEvALQHZmSB21RpvacCYLU9f020E8oK3pCGgxV-nqICnZU0H3Qr2swKv-AfTi-WX4jCeTuvf0tGk'}).then(response => console.log(response));
-  
-    getFeed()
+    }  
+    getFeed();
   };
 
 const sendLikes = function(postId) {
@@ -21,7 +16,7 @@ const sendLikes = function(postId) {
 }
 
 
-const generateCardHTML = function(key, post) {
+function generateCardHTML(key, post) {
 
     return `
     <div class="card" style="width: 18rem;">
@@ -39,7 +34,7 @@ const generateCardHTML = function(key, post) {
 }
 
 
-const getFeed = function () {
+function getFeed() {
     
     let postsFeed = document.getElementById('posts-feed');
 
@@ -63,7 +58,7 @@ const getFeed = function () {
     }
 }
 
-const createPost = () => {
+function createPost() {
     let title = document.getElementById('post-title').value
     let body = document.getElementById('post-body').value
     let user = firebase.auth().currentUser
@@ -72,7 +67,7 @@ const createPost = () => {
     firestore.collection('posts').add(post).then(() => {getFeed()})
 }
 
-const generateAndInsertPost = (key, post) => {
+function generateAndInsertPost(key, post) {
     let postsFeed = document.getElementById('posts-feed');
     let htmlText = generateCardHTML(key, post);
     postsFeed.insertAdjacentHTML('beforeend', htmlText);
