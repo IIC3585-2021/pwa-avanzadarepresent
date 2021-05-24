@@ -1,80 +1,91 @@
 
-window.onload = () => {
-  "use strict";
-
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js");
+window.addEventListener("load", function(){
+  // Wait to load libraries  
+  sleep(1000).then(() => {
+    checkLogin()
   }
-  // firebase.messaging().getToken({vapidKey: 'BFT2TPFfJf2AEvALQHZmSB21RpvacCYLU9f020E8oK3pCGgxV-nqICnZU0H3Qr2swKv-AfTi-WX4jCeTuvf0tGk'}).then(response => console.log(response));
-};
+  )
+});
 
-const submitButton = document.getElementById("submit-button");
-submitButton.onclick = () => {callFirebaseAuth()};
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-const refreshAuth = document.getElementById("refersh-auth");
-refreshAuth.onclick = () => {
-  const elem = document.getElementById("is-auth");
 
-  var user = firebase.auth().currentUser;
+const loginButton = document.getElementById("login-button");
+loginButton.onclick = callFirebaseAuth;
+const logoutButton = document.getElementById("logout-button");
+logoutButton.onclick = callFirebaseLogout;
 
-  if (user) {
-    elem.innerHTML = `Estoy loggeado con ${user.email}`
-  } 
+function checkLogin() {
+  const isLogged = firebase.auth().currentUser;
+  const loginElement = document.getElementById("login-box");
+  const loggedElement = document.getElementById("logged-box");
+  if (isLogged) {
+    setLoggedUserBlock();
+    loggedElement.style.display = "block";
+    loginElement.style.display = "none";
+  } else {
+    loggedElement.style.display = "none";
+    loginElement.style.display = "block";
+  }
 }
 
 
 function callFirebaseAuth() {
-
-  const firestore = firebase.firestore()
-  firestore
-      .collection("posts")
-      .get()
-      .then(response => {console.log(response)})
-
-    const email = document.getElementById("email").value
-    const password = document.getElementById("password").value
-    firebase.auth().signInWithEmailAndPassword(email, password)
+  const isLogged = firebase.auth().currentUser;
+  console.log(`Estoy logeado? ${isLogged}`)
+  const loginButton = document.getElementById("login-button");
+  const loginLoading = document.getElementById("login-loading");
+  loginButton.style.display = "none";
+  loginLoading.style.display = "block";
+  const email = document.getElementById("email").value
+  const password = document.getElementById("password").value
+  firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       // Signed in
-      var user = userCredential.user;
-      // ...
+      var userEmail = userCredential.user.email;
+      loginButton.style.display = "block";
+      loginLoading.style.display = "none";
+      var tokenPromise = firebase.messaging().getToken();
+      tokenPromise.then(response => {loginButton.style.display = "block";
+      loginLoading.style.display = "none";
+        console.log(`response token ${response}`)
+      })
+      console.log(`usuario ingresado: ${userEmail}`)
+      checkLogin();
     })
     .catch((error) => {
-      var errorCode = error.code;
       var errorMessage = error.message;
+      loginButton.style.display = "block";
+      loginLoading.style.display = "none";
+      alert("Algo malo sucedió, intenta más tarde.")
+      console.log(errorMessage);
     });
-
 }
 
-// function signOut(){
-//   firebase.auth().signOut().then(() => {
-//     // Sign-out successful.
-//   }).catch((error) => {
-//     // An error happened.
-//   });
-// }
+function setLoggedUserBlock() {
+  const userEmail = firebase.auth().currentUser.email;
+  const loggedContentHTML = document.getElementById("logged-content")
+  loggedContentHTML.innerHTML = `Como ${userEmail}`
+}
 
-
-// function getToken() {
-//   const messaging = firebase.messaging();
-//   // [START messaging_get_token]
-//   // Get registration token. Initially this makes a network call, once retrieved
-//   // subsequent calls to getToken will return from cache.
-//   messaging.getToken({ vapidKey: '<YOUR_PUBLIC_VAPID_KEY_HERE>' }).then((currentToken) => {
-//     if (currentToken) {
-//       // Send the token to your server and update the UI if necessary
-//       // ...
-//     } else {
-//       // Show permission request UI
-//       console.log('No registration token available. Request permission to generate one.');
-//       // ...
-//     }
-//   }).catch((err) => {
-//     console.log('An error occurred while retrieving token. ', err);
-//     // ...
-//   });
-//   // [END messaging_get_token]
-// }
+function callFirebaseLogout(){
+  const logoutButton = document.getElementById("logout-button");
+  const logoutLoading = document.getElementById("logout-loading");
+  logoutButton.style.display = "none";
+  logoutLoading.style.display = "block";
+  firebase.auth().signOut().then(() => {
+    logoutButton.style.display = "block";
+    logoutLoading.style.display = "none";
+    checkLogin()
+  }).catch((error) => {
+    logoutButton.style.display = "block";
+    logoutLoading.style.display = "none";
+    alert("Algo sucedió, prueba más tarde");
+    console.log(`Error: ${error}`)
+  });
+}
 
 function requestPermission() {
   // [START messaging_request_permission]
@@ -93,12 +104,10 @@ function requestPermission() {
 function deleteToken() {
   const messaging = firebase.messaging();
 
-  // [START messaging_delete_token]
   messaging.deleteToken().then(() => {
     console.log('Token deleted.');
     // ...
   }).catch((err) => {
     console.log('Unable to delete token. ', err);
   });
-  // [END messaging_delete_token]
 }
