@@ -1,3 +1,10 @@
+window.onload = () => {
+  "use strict";
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js");
+  }  
+};
+
 
 window.addEventListener("load", function(){
   // Wait to load libraries  
