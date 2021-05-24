@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "idb-keyval": "^5.0.5",
     "serve": "^11.3.2"
   }
 }
