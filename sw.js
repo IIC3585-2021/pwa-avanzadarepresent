@@ -1,12 +1,12 @@
 let cacheName = "my-first-pwa";
 let filesToCache = [
-  "/",
-  "/index.html",
-  "/css/style.css",
-  "/js/index.js",
-  "/js/feed.js",
-  "/js/notifications.js",
-  "/manifest.json"
+  "./",
+  "./index.html",
+  "./css/style.css",
+  "./js/index.js",
+  "./js/feed.js",
+  "./js/notifications.js",
+  "./manifest.json"
 ];
 
 
