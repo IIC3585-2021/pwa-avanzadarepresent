@@ -59,12 +59,34 @@ function getFeed() {
 }
 
 function createPost() {
-    let title = document.getElementById('post-title').value
-    let body = document.getElementById('post-body').value
-    let user = firebase.auth().currentUser
-    let post = {title, body, author: user.email, likes: []}
-    const firestore = firebase.firestore()
-    firestore.collection('posts').add(post).then(() => {getFeed()})
+    const titleField = document.getElementById('post-title');
+    const bodyField = document.getElementById('post-body')
+    let title = titleField.value;
+    let body = bodyField.value;
+    let user = firebase.auth().currentUser;
+    const loadingButton = document.getElementById("create-post-loading");
+    const createPostButton = document.getElementById("create-post");
+    loadingButton.style.display = "block";
+    createPostButton.style.display = "none";    
+    if (user && title && body) {
+        let post = {title, body, author: user.email, likes: []};
+        const firestore = firebase.firestore()
+        firestore.collection('posts').add(post).then(() => {
+            titleField.value = "";
+            bodyField.value = "";
+            getFeed();
+            loadingButton.style.display = "none";
+            createPostButton.style.display = "block";
+        })
+    } else if (!title || !body) {
+        loadingButton.style.display = "none";
+        createPostButton.style.display = "block";
+        alert("No pueden haber campos vacíos");
+    } else {
+        loadingButton.style.display = "none";
+        createPostButton.style.display = "block";
+        alert("Debes iniciar sesión primero")
+    }
 }
 
 function generateAndInsertPost(key, post) {
