@@ -104,6 +104,10 @@ function getFeed() {
         generateAndInsertPost(id, data, isPending);
       });
     });
+}
+
+function getAllFeed() {
+  getFeed();
   if ( !navigator.onLine ) {
     alert("Te encuentras offline, por lo que no se pueden cargar nuevos posts")
   }
@@ -124,21 +128,32 @@ function createPost() {
     let post = {title, body, author: user.email, likes: [], created_at: now};
     const firestore = firebase.firestore()
     firestore.collection('posts').add(post).then(() => {
-      titleField.value = "";
-      bodyField.value = "";
-      getFeed();
-      loadingButton.style.display = "none";
-      createPostButton.style.display = "block";
+      resetPostForm();
     })
+    if (!navigator.onLine) {
+      resetPostForm();
+    }
   } else if (!title || !body) {
+    alert("No pueden haber campos vacíos");
     loadingButton.style.display = "none";
     createPostButton.style.display = "block";
-    alert("No pueden haber campos vacíos");
   } else {
     alert("Debes iniciar sesión primero")
     loadingButton.style.display = "none";
     createPostButton.style.display = "block";
   }
+}
+
+function resetPostForm(){
+  const titleField = document.getElementById('post-title');
+  const bodyField = document.getElementById('post-body')
+  const loadingButton = document.getElementById("create-post-loading");
+  const createPostButton = document.getElementById("create-post");
+
+  titleField.value = "";
+  bodyField.value = "";
+  loadingButton.style.display = "none";
+  createPostButton.style.display = "block";
 }
 
 function generateAndInsertPost(key, post, isPending) {
@@ -151,4 +166,4 @@ const createPostFeed = document.getElementById("create-post");
 createPostFeed.onclick = createPost;
 
 const getPostsButton = document.getElementById("get-posts-feed");
-getPostsButton.onclick = getFeed;
+getPostsButton.onclick = getAllFeed;
