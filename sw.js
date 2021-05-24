@@ -1,4 +1,4 @@
-let cacheName = "my-first-pwa";
+let cacheName = "twatter";
 let filesToCache = [
   "./",
   "./index.html",
